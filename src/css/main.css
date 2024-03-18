@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    font-family: Ubuntu, system-ui, 'sans-serif';
+}
+
+#output {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#output > div:last-child {
+    margin-bottom: 0;
+}
+
+main, #output-wrapper {
+    height: 0;
+}
+
+.message.me {
+    align-self: flex-end;
+    background-color: rgb(208, 242, 255);
+}
+
+.message {
+    width: fit-content;
+    background-color: lightgray;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.message.others::after{
+    position: absolute;
+    content: '';
+    display: block;
+    height: 0;
+    width: 5px;
+    border-top: 5px solid transparent;
+    border-right: 5px solid lightgray;
+    border-bottom: 5px solid transparent;
+    left: 0;
+    top: 50%;
+    transform: translate(-100%, -50%);
+}
+
+.message.me::after{
+    position: absolute;
+    content: '';
+    display: block;
+    height: 0;
+    width: 5px;
+    border-top: 5px solid transparent;
+    border-left: 5px solid rgb(208, 242, 255);
+    border-bottom: 5px solid transparent;
+    right: 0;
+    top: 50%;
+    transform: translate(100%, -50%);
+}
+
+#account {
+    width: 50px;
+    height: 50px;
+    align-self: center;
+    border-radius: 50%;
+    background-size: contain;
+    cursor: pointer;
+    position: relative
+}
+
+#account-details {
+    position: absolute;
+    width: 200px;
+    right: 0;
+    top: calc(100% + 2px);
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    text-align: right;
+    z-index: 99999;
+}
+
+#user-email {
+    color: gray;
+    font-size: 0.8rem;
+    padding-right: 10px;;
+}
+
+#user-name{
+    padding: 10px 10px 0;
+}
+
+#btn-sign-out {    
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#btn-sign-out:hover {
+    background-color: lightgray;
+}
